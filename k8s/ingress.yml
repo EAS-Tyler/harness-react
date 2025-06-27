@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ty-harness-demo-ingress
+  namespace: ty-harness
+spec:
+  rules:
+  - host: ty-harness.utility.clusters.easlab.co.uk
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ty-harness-demo-service
+            port:
+              number: 80

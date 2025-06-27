@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ty-harness-demo
+  namespace: ty-harness
+  labels:
+    app: ty-harness-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ty-harness-demo
+  template:
+    metadata:
+      labels:
+        app: ty-harness-demo
+    spec:
+      containers:
+      - name: ty-harness-demo
+        image: eastyler/harness-demo:demo
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ty-harness-demo-service
+  namespace: ty-harness
+spec:
+  selector:
+    app: ty-harness-demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
