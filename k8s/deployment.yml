@@ -7,6 +7,9 @@ metadata:
     app: ty-harness-demo
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: ty-harness-demo
   template:
     metadata:
       labels:
