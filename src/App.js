@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-This is harness demo 
+This is harness demo - V2
         </p>
         <a
           className="App-link"
