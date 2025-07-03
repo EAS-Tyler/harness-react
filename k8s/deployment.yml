@@ -68,6 +68,10 @@ spec:
   selector:
     app: ty-harness-demo
   ports:
+  # - name: http               # ← name is required for HTTP routing
+  #   port: 80                 # client-visible port
+  #   targetPort: 3000         # matches the containerPort in both Deployments
+  # type: ClusterIP
     - protocol: TCP
       port: 80
       targetPort: 80
